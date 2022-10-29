@@ -7,3 +7,9 @@ class User(models.Model):
     fam = models.TextField()
     name = models.TextField()
     otc = models.TextField()
+
+
+class Coords(models.Model):
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    height = models.IntegerField()
