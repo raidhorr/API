@@ -13,3 +13,5 @@ class Coords(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     height = models.IntegerField()
+
+
