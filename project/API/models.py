@@ -15,3 +15,9 @@ class Coords(models.Model):
     height = models.IntegerField()
 
 
+class PerevalImages(models.Model):
+    date_added = models.TimeField()
+    title = models.TextField()
+    data = models.BinaryField()
+
+
