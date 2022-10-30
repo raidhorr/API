@@ -1,5 +1,6 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from json import loads, dumps
 
 
 class User(models.Model):
@@ -36,5 +37,13 @@ class PerevalAdded(models.Model):
     level_spring = models.TextField()
     images = ArrayField(models.IntegerField())
 
-
-
+    def submitData(self, data):
+        try:
+            python_data = loads(data)
+        except ValueError as ex:
+            result_data = {
+                "status": 500,
+                "message": "Ошибка JSON",
+                "id": None
+            }
+            return dumps(result_data)
