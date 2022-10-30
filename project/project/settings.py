@@ -80,12 +80,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': os.getenv("FSTR_DB_LOGIN"),
+        'PASSWORD': os.getenv("FSTR_DB_PASS"),
+        'HOST': os.getenv("FSTR_DB_HOST"),
+        'PORT': os.getenv("FSTR_DB_PORT"),
+    },
 }
 
 
@@ -130,13 +133,3 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': os.getenv("FSTR_DB_LOGIN"),
-        'PASSWORD': os.getenv("FSTR_DB_PASS"),
-        'HOST': os.getenv("FSTR_DB_HOST"),
-        'PORT': os.getenv("FSTR_DB_PORT"),
-    },
-}
